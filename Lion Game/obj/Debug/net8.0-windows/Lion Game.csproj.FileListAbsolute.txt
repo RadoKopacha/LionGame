@@ -1,0 +1,17 @@
+C:\Users\Admin\Documents\`Games\Lion Game\Lion Game\obj\Debug\net8.0-windows\Lion_Game.Form1.resources
+C:\Users\Admin\Documents\`Games\Lion Game\Lion Game\obj\Debug\net8.0-windows\Lion_Game.Properties.Resources.resources
+C:\Users\Admin\Documents\`Games\Lion Game\Lion Game\obj\Debug\net8.0-windows\Lion Game.csproj.GenerateResource.cache
+C:\Users\Admin\Documents\`Games\Lion Game\Lion Game\obj\Debug\net8.0-windows\Lion Game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Documents\`Games\Lion Game\Lion Game\obj\Debug\net8.0-windows\Lion Game.AssemblyInfoInputs.cache
+C:\Users\Admin\Documents\`Games\Lion Game\Lion Game\obj\Debug\net8.0-windows\Lion Game.AssemblyInfo.cs
+C:\Users\Admin\Documents\`Games\Lion Game\Lion Game\obj\Debug\net8.0-windows\Lion Game.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\`Games\Lion Game\Lion Game\bin\Debug\net8.0-windows\Lion Game.exe
+C:\Users\Admin\Documents\`Games\Lion Game\Lion Game\bin\Debug\net8.0-windows\Lion Game.deps.json
+C:\Users\Admin\Documents\`Games\Lion Game\Lion Game\bin\Debug\net8.0-windows\Lion Game.runtimeconfig.json
+C:\Users\Admin\Documents\`Games\Lion Game\Lion Game\bin\Debug\net8.0-windows\Lion Game.dll
+C:\Users\Admin\Documents\`Games\Lion Game\Lion Game\bin\Debug\net8.0-windows\Lion Game.pdb
+C:\Users\Admin\Documents\`Games\Lion Game\Lion Game\obj\Debug\net8.0-windows\Lion Game.dll
+C:\Users\Admin\Documents\`Games\Lion Game\Lion Game\obj\Debug\net8.0-windows\refint\Lion Game.dll
+C:\Users\Admin\Documents\`Games\Lion Game\Lion Game\obj\Debug\net8.0-windows\Lion Game.pdb
+C:\Users\Admin\Documents\`Games\Lion Game\Lion Game\obj\Debug\net8.0-windows\Lion Game.genruntimeconfig.cache
+C:\Users\Admin\Documents\`Games\Lion Game\Lion Game\obj\Debug\net8.0-windows\ref\Lion Game.dll
