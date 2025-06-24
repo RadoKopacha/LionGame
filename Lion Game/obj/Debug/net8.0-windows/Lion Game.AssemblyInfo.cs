@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Lion Game")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ffd484e21502d07a9300f92b956846c2cae5a74d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Lion Game")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Lion Game")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

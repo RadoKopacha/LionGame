@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Lion_Game
 {
@@ -11,6 +12,7 @@ namespace Lion_Game
         private List<PictureBox> lions = new();
         private List<PictureBox> cheeses = new();
         private List<PictureBox> obstacles = new();
+        private List<PictureBox> bushes = new();
         private System.Windows.Forms.Timer lionTimer = new System.Windows.Forms.Timer();
         private System.Windows.Forms.Timer mouseTimer = new System.Windows.Forms.Timer();
         private HashSet<Keys> pressedKeys = new();
@@ -49,6 +51,9 @@ namespace Lion_Game
         private System.Windows.Forms.Timer bossMoveTimer = new System.Windows.Forms.Timer(); // Add this line
         private DateTime lastBossHitTime = DateTime.MinValue;
         private const int BossHitCooldownMs = 1000; // 1 second cooldown between hits
+        private const int MaxMouseHealth = 5;
+        private const int MaxBossHealth = 10;
+        private SoundPlayer bossMusicPlayer;
 
         public Form1()
         {
@@ -58,8 +63,8 @@ namespace Lion_Game
 
         private void InitGame()
         {
-            this.Width = 800;
-            this.Height = 600;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
             this.BackColor = Color.Green;
             this.KeyPreview = true;
             this.KeyDown += Form1_KeyDown;
@@ -80,7 +85,7 @@ namespace Lion_Game
             // Ammo icon
             ammoIcon = new PictureBox
             {
-                Image = Properties.Resources.ammobox, // Change this line
+                Image = Properties.Resources.ammobox,
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Size = new Size(30, 30),
                 Location = new Point(10, 50),
@@ -123,13 +128,14 @@ namespace Lion_Game
             };
             this.Controls.Add(healthLabel);
 
-            // Mouse
+            // Mouse - spawn at random location
+            Point mouseSpawn = GetRandomLocation(30, 30);
             mouse = new PictureBox
             {
                 Image = Properties.Resources.Mouse,
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Size = new Size(30, 30),
-                Location = new Point(100, 100),
+                Location = mouseSpawn,
                 BackColor = Color.Transparent
             };
             this.Controls.Add(mouse);
@@ -182,12 +188,51 @@ namespace Lion_Game
             bossTimer.Interval = 1000; // check every second
             bossTimer.Tick += BossTimer_Tick;
             bossTimer.Start();
+
+            // Boss health label (top right)
+            bossHealthLabel = new Label
+            {
+                Text = $"Boss Health: {bossHealth}",
+                Font = new Font("Arial", 16, FontStyle.Bold),
+                ForeColor = Color.Magenta,
+                BackColor = Color.Transparent,
+                AutoSize = true,
+                Location = new Point(this.ClientSize.Width - 220, 10)
+            };
+            this.Controls.Add(bossHealthLabel);
+            bossHealthLabel.BringToFront();
+
+            // Boss ammo icon and count (top right, under boss health)
+            bossAmmoIcon = new PictureBox
+            {
+                Image = Properties.Resources.boos_ammo,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Size = new Size(30, 30),
+                Location = new Point(this.ClientSize.Width - 220, 50),
+                BackColor = Color.Transparent
+            };
+            this.Controls.Add(bossAmmoIcon);
+
+            bossAmmoCountLabel = new Label
+            {
+                Text = $"x {bossAmmoCount}",
+                Font = new Font("Arial", 16, FontStyle.Bold),
+                ForeColor = Color.Magenta,
+                BackColor = Color.Transparent,
+                AutoSize = true,
+                Location = new Point(bossAmmoIcon.Right + 5, 55)
+            };
+            this.Controls.Add(bossAmmoCountLabel);
+
+            bossAmmoIcon.BringToFront();
+            bossAmmoCountLabel.BringToFront();
         }
+       
 
         private void PlaceObstacles()
         {
-            // Place 5 trees
-            for (int i = 0; i < 5; i++)
+            // Place 13 trees
+            for (int i = 0; i < 13; i++)
             {
                 var tree = new PictureBox
                 {
@@ -202,8 +247,8 @@ namespace Lion_Game
                 tree.BringToFront();
             }
 
-            // Place 4 rocks
-            for (int i = 0; i < 4; i++)
+            // Place 15 rocks
+            for (int i = 0; i < 15; i++)
             {
                 var rock = new PictureBox
                 {
@@ -218,6 +263,23 @@ namespace Lion_Game
                 rock.BringToFront();
             }
 
+            // Place 3 bushes (not obstacles)
+            bushes.Clear();
+            for (int i = 0; i < 3; i++)
+            {
+                var bush = new PictureBox
+                {
+                    Image = Properties.Resources.bush,
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Size = new Size(38, 38),
+                    Location = GetRandomLocation(38, 38),
+                    BackColor = Color.Transparent
+                };
+                bushes.Add(bush);
+                this.Controls.Add(bush);
+                bush.BringToFront();
+            }
+
             highScoreLabel.BringToFront();
             ammoIcon.BringToFront();
             ammoCountLabel.BringToFront();
@@ -225,15 +287,19 @@ namespace Lion_Game
             healthLabel.BringToFront();
         }
 
+
+
+
+        // Avoid spawning obstacles on top of the mouse or any lion
         private Point GetRandomLocation(int width, int height)
         {
-            // Avoid spawning obstacles on top of the mouse or any lion
+            Rectangle screenBounds = Screen.PrimaryScreen.Bounds;
             Point pt;
             Rectangle mouseRect = new Rectangle(mouse?.Location ?? new Point(0, 0), mouse?.Size ?? new Size(30, 30));
             bool collides;
             do
             {
-                pt = new Point(rand.Next(0, this.ClientSize.Width - width), rand.Next(0, this.ClientSize.Height - height));
+                pt = new Point(rand.Next(0, screenBounds.Width - width), rand.Next(0, screenBounds.Height - height));
                 Rectangle newRect = new Rectangle(pt, new Size(width, height));
                 collides = mouseRect.IntersectsWith(newRect);
                 foreach (var obs in obstacles)
@@ -289,6 +355,10 @@ namespace Lion_Game
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Application.Exit();
+            }
             pressedKeys.Add(e.KeyCode);
         }
 
@@ -326,6 +396,10 @@ namespace Lion_Game
 
         private void LionTimer_Tick(object sender, EventArgs e)
         {
+            // If mouse is in a bush, lions stop chasing
+            if (IsMouseInBush())
+                return;
+
             // Move each lion towards the mouse
             foreach (var lion in lions)
             {
@@ -345,6 +419,15 @@ namespace Lion_Game
                 foreach (var obs in obstacles)
                 {
                     if (tryLionRectX.IntersectsWith(new Rectangle(obs.Location, obs.Size)))
+                    {
+                        collidesX = true;
+                        break;
+                    }
+                }
+                // Prevent lions from entering bushes
+                foreach (var bush in bushes)
+                {
+                    if (tryLionRectX.IntersectsWith(new Rectangle(bush.Location, bush.Size)))
                     {
                         collidesX = true;
                         break;
@@ -370,6 +453,15 @@ namespace Lion_Game
                 foreach (var obs in obstacles)
                 {
                     if (tryLionRectY.IntersectsWith(new Rectangle(obs.Location, obs.Size)))
+                    {
+                        collidesY = true;
+                        break;
+                    }
+                }
+                // Prevent lions from entering bushes
+                foreach (var bush in bushes)
+                {
+                    if (tryLionRectY.IntersectsWith(new Rectangle(bush.Location, bush.Size)))
                     {
                         collidesY = true;
                         break;
@@ -664,7 +756,7 @@ namespace Lion_Game
                 }
             }
 
-            // Fire boss ammo if boss is active
+            // Restore boss ammo firing logic
             if (bossActive && e.Button == MouseButtons.Left && bossAmmoCount > 0 && firedBossAmmo == null)
             {
                 firedBossAmmo = new PictureBox
@@ -677,9 +769,9 @@ namespace Lion_Game
                 };
                 this.Controls.Add(firedBossAmmo);
                 firedBossAmmo.BringToFront();
-                bossHealthLabel.BringToFront();
-                bossAmmoIcon.BringToFront();
-                bossAmmoCountLabel.BringToFront();
+                bossHealthLabel?.BringToFront();
+                bossAmmoIcon?.BringToFront();
+                bossAmmoCountLabel?.BringToFront();
                 bossAmmoCount--;
                 bossAmmoCountLabel.Text = $"x {bossAmmoCount}";
                 firedAmmoTimer.Tick -= FiredAmmoTimer_Tick; // Remove regular ammo handler
@@ -739,53 +831,27 @@ namespace Lion_Game
                 // Spawn boss
                 boss = new PictureBox
                 {
-                    Image = Properties.Resources.boos, // Add a boss image to your resources
+                    Image = Properties.Resources.boos,
                     SizeMode = PictureBoxSizeMode.StretchImage,
-                    Size = new Size(80, 80), // Scaled up from 60x60 to 80x80
+                    Size = new Size(80, 80),
                     Location = GetRandomLocation(80, 80),
                     BackColor = Color.Transparent
                 };
                 this.Controls.Add(boss);
                 boss.BringToFront();
 
-                // Boss health label (top right)
-                bossHealth = 10;
-                bossHealthLabel = new Label
-                {
-                    Text = $"Boss Health: {bossHealth}",
-                    Font = new Font("Arial", 16, FontStyle.Bold),
-                    ForeColor = Color.Magenta,
-                    BackColor = Color.Transparent,
-                    AutoSize = true,
-                    Location = new Point(this.ClientSize.Width - 220, 10)
-                };
-                this.Controls.Add(bossHealthLabel);
-                bossHealthLabel.BringToFront();
+                // Reset all your ammo when boss spawns
+                ammoCount = 0;
+                ammoCountLabel.Text = $"x {ammoCount}";
 
-                // Boss ammo icon and count (top right, under boss health)
-                bossAmmoIcon = new PictureBox
-                {
-                    Image = Properties.Resources.boos_ammo, // Add a boss ammo image to your resources
-                    SizeMode = PictureBoxSizeMode.StretchImage,
-                    Size = new Size(30, 30),
-                    Location = new Point(this.ClientSize.Width - 220, 50),
-                    BackColor = Color.Transparent
-                };
-                this.Controls.Add(bossAmmoIcon);
-
-                bossAmmoCountLabel = new Label
-                {
-                    Text = $"x {bossAmmoCount}",
-                    Font = new Font("Arial", 16, FontStyle.Bold),
-                    ForeColor = Color.Magenta,
-                    BackColor = Color.Transparent,
-                    AutoSize = true,
-                    Location = new Point(bossAmmoIcon.Right + 5, 55)
-                };
-                this.Controls.Add(bossAmmoCountLabel);
-
-                bossAmmoIcon.BringToFront();
-                bossAmmoCountLabel.BringToFront();
+                // Play boss music
+                try
+                {       
+                    bossMusicPlayer?.Stop();
+                    bossMusicPlayer = new SoundPlayer(Properties.Resources.boss_muisc); // Ensure your resource is named 'boss_music'
+                    bossMusicPlayer.PlayLooping();
+                }
+                catch { /* Handle missing resource or playback error if needed */ }
 
                 // Start boss ammo drop timer
                 bossAmmoDropTimer.Interval = 7000; // every 7 seconds
@@ -798,6 +864,7 @@ namespace Lion_Game
                 bossMoveTimer.Start();
 
                 bossActive = true;
+                Invalidate(); // Ensure the health bar is drawn
             }
         }
 
@@ -807,7 +874,7 @@ namespace Lion_Game
             {
                 bossAmmoDrop = new PictureBox
                 {
-                    Image = Properties.Resources.boos_ammo, // Use your boss ammo image
+                    Image = Properties.Resources.boos_ammo,
                     SizeMode = PictureBoxSizeMode.StretchImage,
                     Size = new Size(25, 25),
                     Location = GetRandomLocation(25, 25),
@@ -815,9 +882,9 @@ namespace Lion_Game
                 };
                 this.Controls.Add(bossAmmoDrop);
                 bossAmmoDrop.BringToFront();
-                bossHealthLabel.BringToFront();
-                bossAmmoIcon.BringToFront();
-                bossAmmoCountLabel.BringToFront();
+                bossHealthLabel?.BringToFront();
+                bossAmmoIcon?.BringToFront();
+                bossAmmoCountLabel?.BringToFront();
             }
         }
 
@@ -864,8 +931,8 @@ namespace Lion_Game
             var bossPos = boss.Location;
             var mousePos = mouse.Location;
 
-            // Move boss towards mouse
-            int step = 3;
+            // Increase boss speed by increasing the step value (e.g., from 3 to 6)
+            int step = 6;
             if (bossPos.X < mousePos.X) bossPos.X += step;
             if (bossPos.X > mousePos.X) bossPos.X -= step;
             if (bossPos.Y < mousePos.Y) bossPos.Y += step;
@@ -943,6 +1010,74 @@ namespace Lion_Game
                 }
             } while (collides);
             boss.Location = pt;
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            // Health bar dimensions
+            int barWidth = 300;
+            int barHeight = 25;
+            int barX = (this.ClientSize.Width - barWidth) / 2;
+            int barY = 10;
+
+            // Calculate current health width
+            float healthPercent = Math.Max(0, Math.Min(1f, (float)mouseHealth / MaxMouseHealth));
+            int healthWidth = (int)(barWidth * healthPercent);
+
+            // Draw background (gray)
+            e.Graphics.FillRectangle(Brushes.DarkGray, barX, barY, barWidth, barHeight);
+
+            // Draw health (red)
+            if (healthWidth > 0)
+                e.Graphics.FillRectangle(Brushes.Red, barX, barY, healthWidth, barHeight);
+
+            // Draw border
+            e.Graphics.DrawRectangle(Pens.Black, barX, barY, barWidth, barHeight);
+
+            // Draw the boss health bar only if the boss is active
+            if (bossActive)
+            {
+                // Health bar dimensions
+                int bossBarWidth = 400;
+                int bossBarHeight = 30;
+                int bossBarX = (this.ClientSize.Width - bossBarWidth) / 2;
+                int bossBarY = 50;
+
+                // Calculate current health width
+                float bossHealthPercent = Math.Max(0, Math.Min(1f, (float)bossHealth / MaxBossHealth));
+                int bossHealthWidth = (int)(bossBarWidth * bossHealthPercent);
+
+                // Draw background (solid dark gray)
+                using (SolidBrush bgBrush = new SolidBrush(Color.FromArgb(255, 64, 64, 64))) // Opaque dark gray
+                {
+                    e.Graphics.FillRectangle(bgBrush, bossBarX, bossBarY, bossBarWidth, bossBarHeight);
+                }
+
+                // Draw health (solid red)
+                if (bossHealthWidth > 0)
+                {
+                    using (SolidBrush healthBrush = new SolidBrush(Color.Red)) // Opaque red
+                    {
+                        e.Graphics.FillRectangle(healthBrush, bossBarX, bossBarY, bossHealthWidth, bossBarHeight);
+                    }
+                }
+
+                // Draw border
+                e.Graphics.DrawRectangle(Pens.Black, bossBarX, bossBarY, bossBarWidth, bossBarHeight);
+            }
+        }
+
+        private bool IsMouseInBush()
+        {
+            Rectangle mouseRect = new Rectangle(mouse.Location, mouse.Size);
+            foreach (var bush in bushes)
+            {
+                if (mouseRect.IntersectsWith(new Rectangle(bush.Location, bush.Size)))
+                    return true;
+            }
+            return false;
         }
     }
 }

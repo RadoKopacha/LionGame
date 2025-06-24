@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Documents\\`Games\\Lion Game\\Lion Game\\Lion Game.csproj",
+      "projectUniqueName": "D:\\Нова папка\\LionGame\\Lion Game\\Lion Game.csproj",
       "projectName": "Lion Game",
-      "projectPath": "C:\\Users\\Admin\\Documents\\`Games\\Lion Game\\Lion Game\\Lion Game.csproj",
+      "projectPath": "D:\\Нова папка\\LionGame\\Lion Game\\Lion Game.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Documents\\`Games\\Lion Game\\Lion Game\\obj\\",
+      "outputPath": "D:\\Нова папка\\LionGame\\Lion Game\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -75,7 +75,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

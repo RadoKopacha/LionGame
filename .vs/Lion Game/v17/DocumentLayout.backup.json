@@ -1,26 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Admin\\Documents\\\u0060Games\\Lion Game\\",
+  "WorkspaceRootPath": "D:\\\u041D\u043E\u0432\u0430 \u043F\u0430\u043F\u043A\u0430\\LionGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9C137D7B-B029-4C2B-AD50-1238916F8433}|Lion Game\\Lion Game.csproj|c:\\users\\admin\\documents\\\u0060games\\lion game\\lion game\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9C137D7B-B029-4C2B-AD50-1238916F8433}|Lion Game\\Lion Game.csproj|d:\\\u043D\u043E\u0432\u0430 \u043F\u0430\u043F\u043A\u0430\\liongame\\lion game\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9C137D7B-B029-4C2B-AD50-1238916F8433}|Lion Game\\Lion Game.csproj|solutionrelative:lion game\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9C137D7B-B029-4C2B-AD50-1238916F8433}|Lion Game\\Lion Game.csproj|c:\\users\\admin\\documents\\\u0060games\\lion game\\lion game\\properties\\resources.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
-      "RelativeMoniker": "D:0:0:{9C137D7B-B029-4C2B-AD50-1238916F8433}|Lion Game\\Lion Game.csproj|solutionrelative:lion game\\properties\\resources.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9C137D7B-B029-4C2B-AD50-1238916F8433}|Lion Game\\Lion Game.csproj|c:\\users\\admin\\documents\\\u0060games\\lion game\\lion game\\properties\\resources.resx||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{9C137D7B-B029-4C2B-AD50-1238916F8433}|Lion Game\\Lion Game.csproj|solutionrelative:lion game\\properties\\resources.resx||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9C137D7B-B029-4C2B-AD50-1238916F8433}|Lion Game\\Lion Game.csproj|c:\\users\\admin\\documents\\\u0060games\\lion game\\lion game\\lion game.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "AbsoluteMoniker": "D:0:0:{9C137D7B-B029-4C2B-AD50-1238916F8433}|Lion Game\\Lion Game.csproj|d:\\\u043D\u043E\u0432\u0430 \u043F\u0430\u043F\u043A\u0430\\liongame\\lion game\\lion game.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
       "RelativeMoniker": "D:0:0:{9C137D7B-B029-4C2B-AD50-1238916F8433}|Lion Game\\Lion Game.csproj|solutionrelative:lion game\\lion game.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9C137D7B-B029-4C2B-AD50-1238916F8433}|Lion Game\\Lion Game.csproj|c:\\users\\admin\\documents\\\u0060games\\lion game\\lion game\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9C137D7B-B029-4C2B-AD50-1238916F8433}|Lion Game\\Lion Game.csproj|solutionrelative:lion game\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{9C137D7B-B029-4C2B-AD50-1238916F8433}|Lion Game\\Lion Game.csproj|d:\\\u043D\u043E\u0432\u0430 \u043F\u0430\u043F\u043A\u0430\\liongame\\lion game\\properties\\resources.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{9C137D7B-B029-4C2B-AD50-1238916F8433}|Lion Game\\Lion Game.csproj|solutionrelative:lion game\\properties\\resources.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C137D7B-B029-4C2B-AD50-1238916F8433}|Lion Game\\Lion Game.csproj|d:\\\u043D\u043E\u0432\u0430 \u043F\u0430\u043F\u043A\u0430\\liongame\\lion game\\properties\\resources.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9C137D7B-B029-4C2B-AD50-1238916F8433}|Lion Game\\Lion Game.csproj|solutionrelative:lion game\\properties\\resources.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C137D7B-B029-4C2B-AD50-1238916F8433}|Lion Game\\Lion Game.csproj|d:\\\u043D\u043E\u0432\u0430 \u043F\u0430\u043F\u043A\u0430\\liongame\\lion game\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C137D7B-B029-4C2B-AD50-1238916F8433}|Lion Game\\Lion Game.csproj|solutionrelative:lion game\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,69 +30,69 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Resources.resx",
+              "DocumentMoniker": "D:\\\u041D\u043E\u0432\u0430 \u043F\u0430\u043F\u043A\u0430\\LionGame\\Lion Game\\Properties\\Resources.resx",
+              "RelativeDocumentMoniker": "Lion Game\\Properties\\Resources.resx",
+              "ToolTip": "D:\\\u041D\u043E\u0432\u0430 \u043F\u0430\u043F\u043A\u0430\\LionGame\\Lion Game\\Properties\\Resources.resx",
+              "RelativeToolTip": "Lion Game\\Properties\\Resources.resx",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-06-24T15:28:54.628Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Resources.resx",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\\u0060Games\\Lion Game\\Lion Game\\Properties\\Resources.resx",
+              "DocumentMoniker": "D:\\\u041D\u043E\u0432\u0430 \u043F\u0430\u043F\u043A\u0430\\LionGame\\Lion Game\\Properties\\Resources.resx",
               "RelativeDocumentMoniker": "Lion Game\\Properties\\Resources.resx",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\\u0060Games\\Lion Game\\Lion Game\\Properties\\Resources.resx",
+              "ToolTip": "D:\\\u041D\u043E\u0432\u0430 \u043F\u0430\u043F\u043A\u0430\\LionGame\\Lion Game\\Properties\\Resources.resx",
               "RelativeToolTip": "Lion Game\\Properties\\Resources.resx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2025-05-19T18:59:18.768Z",
+              "WhenOpened": "2025-06-24T14:45:04.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Lion Game",
+              "DocumentMoniker": "D:\\\u041D\u043E\u0432\u0430 \u043F\u0430\u043F\u043A\u0430\\LionGame\\Lion Game\\Lion Game.csproj",
+              "RelativeDocumentMoniker": "Lion Game\\Lion Game.csproj",
+              "ToolTip": "D:\\\u041D\u043E\u0432\u0430 \u043F\u0430\u043F\u043A\u0430\\LionGame\\Lion Game\\Lion Game.csproj",
+              "RelativeToolTip": "Lion Game\\Lion Game.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-24T13:54:08.457Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\\u0060Games\\Lion Game\\Lion Game\\Form1.cs",
+              "DocumentMoniker": "D:\\\u041D\u043E\u0432\u0430 \u043F\u0430\u043F\u043A\u0430\\LionGame\\Lion Game\\Form1.cs",
               "RelativeDocumentMoniker": "Lion Game\\Form1.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\\u0060Games\\Lion Game\\Lion Game\\Form1.cs",
-              "RelativeToolTip": "Lion Game\\Form1.cs",
-              "ViewState": "AgIAANMCAAAAAAAAAAAjwHYDAAAAAAAAAAAAAA==",
+              "ToolTip": "D:\\\u041D\u043E\u0432\u0430 \u043F\u0430\u043F\u043A\u0430\\LionGame\\Lion Game\\Form1.cs*",
+              "RelativeToolTip": "Lion Game\\Form1.cs*",
+              "ViewState": "AgIAAEcDAAAAAAAAAAAiwD4DAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T18:44:44.553Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Resources.resx",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\\u0060Games\\Lion Game\\Lion Game\\Properties\\Resources.resx",
-              "RelativeDocumentMoniker": "Lion Game\\Properties\\Resources.resx",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\\u0060Games\\Lion Game\\Lion Game\\Properties\\Resources.resx",
-              "RelativeToolTip": "Lion Game\\Properties\\Resources.resx",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2025-05-19T18:37:58.233Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Lion Game",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\\u0060Games\\Lion Game\\Lion Game\\Lion Game.csproj",
-              "RelativeDocumentMoniker": "Lion Game\\Lion Game.csproj",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\\u0060Games\\Lion Game\\Lion Game\\Lion Game.csproj",
-              "RelativeToolTip": "Lion Game\\Lion Game.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-19T18:37:50.797Z",
+              "WhenOpened": "2025-06-04T17:17:13.967Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\\u0060Games\\Lion Game\\Lion Game\\Form1.cs",
-              "RelativeDocumentMoniker": "Lion Game\\Form1.cs",
-              "ToolTip": "C:\\Users\\Admin\\Documents\\\u0060Games\\Lion Game\\Lion Game\\Form1.cs [Design]",
-              "RelativeToolTip": "Lion Game\\Form1.cs [Design]",
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\\u041D\u043E\u0432\u0430 \u043F\u0430\u043F\u043A\u0430\\LionGame\\Lion Game\\Program.cs",
+              "RelativeDocumentMoniker": "Lion Game\\Program.cs",
+              "ToolTip": "D:\\\u041D\u043E\u0432\u0430 \u043F\u0430\u043F\u043A\u0430\\LionGame\\Lion Game\\Program.cs",
+              "RelativeToolTip": "Lion Game\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T18:36:58.841Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-06-04T17:13:34.925Z"
             }
           ]
         }
